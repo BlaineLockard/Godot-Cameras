@@ -8,9 +8,9 @@ albedo_color = Color(0.7369538, 0.22767761, 1.92523e-07, 1)
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 
-[node name="Main" type="Node3D" unique_id=597468498 node_paths=PackedStringArray("startingCam")]
+[node name="Main" type="Node3D" unique_id=597468498 node_paths=PackedStringArray("currentCam")]
 script = ExtResource("1_0xm2m")
-startingCam = NodePath("CameraObject4")
+currentCam = NodePath("CameraObject")
 
 [node name="ENV" type="Node3D" parent="." unique_id=1306844591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111083984, -0.015641004, 2.9814453)
@@ -34,8 +34,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.625714, 3.6411438, -15.31
 radius = 4.1887164
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="ENV" unique_id=1111116276]
-transform = Transform3D(-0.13724542, -0.55695856, 0.819122, 0.970955, -0.23926221, 0, 0.19598494, 0.79533064, 0.5736193, 13.067387, 3.5490055, -14.801508)
+transform = Transform3D(-0.0430047, -0.56265974, 0.8255692, 0.9977579, -0.06660221, 0.0065819947, 0.051281307, 0.8240012, 0.5642623, 13.067387, 4.3838987, -14.801508)
+inner_radius = 2.6703606
 outer_radius = 5.318223
+sides = 64
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ENV" unique_id=925314725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.003112, 2.4898262, 15.138531)
