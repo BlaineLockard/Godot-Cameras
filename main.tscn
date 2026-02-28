@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dknvq8tnh6qpt"]
+
+[ext_resource type="Script" uid="uid://cne2y4681bafc" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://brdvuf8sori0m" path="res://camera_object.tscn" id="1_ig7tw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_color = Color(0.7369538, 0.22767761, 1.92523e-07, 1)
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+
+[node name="Main" type="Node3D" unique_id=597468498 node_paths=PackedStringArray("startingCam")]
+script = ExtResource("1_0xm2m")
+startingCam = NodePath("CameraObject4")
+
+[node name="ENV" type="Node3D" parent="." unique_id=1306844591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111083984, -0.015641004, 2.9814453)
+
+[node name="floor" type="CSGBox3D" parent="ENV" unique_id=349576589]
+use_collision = true
+size = Vector3(50, 0.5, 50)
+material = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="wall1" type="CSGBox3D" parent="ENV" unique_id=1520033193]
+use_collision = true
+size = Vector3(50, 20, 1)
+
+[node name="wall2" type="CSGBox3D" parent="ENV" unique_id=1468218727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111083984, 0.015641004, 0.018554688)
+use_collision = true
+size = Vector3(1, 20, 50)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ENV" unique_id=1679718677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.625714, 3.6411438, -15.315161)
+radius = 4.1887164
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="ENV" unique_id=1111116276]
+transform = Transform3D(-0.13724542, -0.55695856, 0.819122, 0.970955, -0.23926221, 0, 0.19598494, 0.79533064, 0.5736193, 13.067387, 3.5490055, -14.801508)
+outer_radius = 5.318223
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ENV" unique_id=925314725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.003112, 2.4898262, 15.138531)
+size = Vector3(5, 5, 5)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ENV" unique_id=1220715937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.639446, 2.651062, 14.930294)
+radius = 2.5795898
+height = 4.9833984
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ENV" unique_id=1330860109]
+environment = SubResource("Environment_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ENV" unique_id=174857029]
+transform = Transform3D(1, 0, 0, 0, 0.061971724, 0.9980779, 0, -0.9980779, 0.061971724, 0, 0, 0)
+light_energy = 2.267
+
+[node name="CameraObject4" parent="." unique_id=272336479 node_paths=PackedStringArray("next") instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.70710653, 0, -0.70710653, 0, 1, 0, 0.70710653, 0, -0.70710653, 0.797, 9, 3.784)
+next = NodePath("../CameraObject")
+
+[node name="CameraObject3" parent="." unique_id=342437286 node_paths=PackedStringArray("next") instance=ExtResource("1_ig7tw")]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.866, 9, 2.235)
+next = NodePath("../CameraObject4")
+
+[node name="CameraObject2" parent="." unique_id=113226297 node_paths=PackedStringArray("next") instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, -0.985, 9, 3.802)
+next = NodePath("../CameraObject3")
+
+[node name="CameraObject" parent="." unique_id=1346883688 node_paths=PackedStringArray("next") instance=ExtResource("1_ig7tw")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.874, 9, 2.205)
+next = NodePath("../CameraObject2")
